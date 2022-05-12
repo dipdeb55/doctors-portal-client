@@ -5,9 +5,9 @@ import PrimaryButton from '../Shared/PrimaryButton';
 const DentalService = ({ service, setTreatment }) => {
     const { name, slots } = service;
     return (
-        <div class="card lg:max-w-lg bg-base-100 shadow-xl">
-            <div class="card-body">
-                <h2 class="card-title text-secondary">{name}</h2>
+        <div className="card lg:max-w-lg bg-base-100 shadow-xl">
+            <div className="card-body text-center">
+                <h2 className="text-secondary text-xl font bold">{name}</h2>
                 <p className=''>
                     {
                         slots.length
@@ -16,8 +16,8 @@ const DentalService = ({ service, setTreatment }) => {
                     }
                 </p>
                 <p className=''> {slots.length} {slots.length > 1 ? 'spaces' : 'space'} available</p>
-                <div class="card-actions justify-center">
-                    <label for="booking-modal" disabled={slots.length === 0} onClick={() => setTreatment(service)} class="btn btn-secondary text-white uppercase bold">Book Appointment</label>
+                <div className="card-actions justify-center">
+                    <label for="booking-modal" disabled={slots.length === 0} onClick={() => setTreatment(service)} className="btn btn-sm btn-secondary text-white uppercase bold">Book Appointment</label>
                 </div>
             </div>
         </div>
