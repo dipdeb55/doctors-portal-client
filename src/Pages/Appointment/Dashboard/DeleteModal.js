@@ -5,7 +5,7 @@ const DeleteModal = ({ deletingDoctor, refetch, setDeletingDoctor }) => {
     const { name, email } = deletingDoctor;
 
     const handelDelete = () => {
-        fetch(`http://localhost:5000/doctors/${email}`, {
+        fetch(`https://lit-citadel-66481.herokuapp.com/doctors/${email}`, {
             method: 'DELETE',
         })
             .then(res => res.json())

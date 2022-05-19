@@ -14,7 +14,7 @@ const MyAppointment = () => {
 
     useEffect(() => {
         if (user) {
-            fetch(`http://localhost:5000/booking?patient=${user.email}`, {
+            fetch(`https://lit-citadel-66481.herokuapp.com/booking?patient=${user.email}`, {
                 method: 'GET',
                 headers: {
                     'authorization': `Bearer ${localStorage.getItem('accesstoken')}`
@@ -53,14 +53,18 @@ const MyAppointment = () => {
                     <tbody>
                         {/* <!-- row 1 --> */}
                         {
-                            appointments.map((a, index) => <tr>
+                            appointments.map((a, index) => <tr key={a._id}>
                                 <th>{index + 1}</th>
                                 <td>{a.patientName}</td>
                                 <td>{a.date}</td>
                                 <td>{a.slot}</td>
                                 <td>{a.treatment}</td>
-                                <td>{(a.price && !a.paid) && <Link to={`/dashboard/payment/${a._id}`}><button className='btn btn-xs btn-success'>Pay</button></Link>}</td>
-                                <td>{(a.price && a.paid) && <span className='text-success'>Paid</span>}</td>
+                                <td>{(a.price && !a.paid) && <Link to={`/dashboard/payment/${a._id}`}><button className='btn btn-xs btn-success'>Pay</button></Link>}
+                                    {(a.price && a.paid) && <div>
+                                        <p> <span className='text-success'>PAID</span></p>
+                                        <p>Transcation id: <span className='text-success'>{a.transactionId}</span></p>
+                                    </div>}
+                                </td>
                             </tr>)
                         }
                         {/* <!-- row 2 --> */}

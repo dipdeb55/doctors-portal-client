@@ -6,7 +6,7 @@ const UserRow = ({ d, refetch }) => {
     const { email, role } = d;
 
     const makeAdmin = () => {
-        fetch(`http://localhost:5000/user/admin/${email}`,
+        fetch(`https://lit-citadel-66481.herokuapp.com/user/admin/${email}`,
             {
                 method: 'PUT',
                 headers: {

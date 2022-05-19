@@ -24,7 +24,7 @@ const BookingModal = ({ date, treatment, setTreatment, refetch }) => {
         }
         console.log(booking)
 
-        fetch('http://localhost:5000/booking', {
+        fetch('https://lit-citadel-66481.herokuapp.com/booking', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

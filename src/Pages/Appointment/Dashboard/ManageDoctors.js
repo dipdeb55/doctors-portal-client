@@ -8,7 +8,7 @@ const ManageDoctors = () => {
 
     const [deletingDoctor, setDeletingDoctor] = useState(null)
 
-    const { data, isLoading, refetch } = useQuery('doctors', () => fetch('http://localhost:5000/doctors').then(res => res.json()))
+    const { data, isLoading, refetch } = useQuery('doctors', () => fetch('https://lit-citadel-66481.herokuapp.com/doctors').then(res => res.json()))
 
     if (isLoading) {
         return <Loading></Loading>
