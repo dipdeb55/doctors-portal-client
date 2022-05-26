@@ -16,7 +16,7 @@ const CheckoutForm = ({ appointment }) => {
 
     // console.log(price)
     useEffect(() => {
-        fetch('https://lit-citadel-66481.herokuapp.com/create-payment-intent', {
+        fetch('http://localhost:5000/create-payment-intent', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json',
@@ -44,6 +44,7 @@ const CheckoutForm = ({ appointment }) => {
         if (card === null) {
             return
         }
+
 
         const { error, paymentMethod } = await stripe.createPaymentMethod({
             type: 'card',
@@ -88,6 +89,8 @@ const CheckoutForm = ({ appointment }) => {
                 appointment: _id,
                 transactionId: paymentIntent.id
             }
+            console.log(payment)
+
             fetch(`https://lit-citadel-66481.herokuapp.com/booking/${_id}`, {
                 method: 'PATCH',
                 headers: {
@@ -123,7 +126,7 @@ const CheckoutForm = ({ appointment }) => {
                         },
                     }}
                 />
-                <button type="submit" className='btn btn-sm btn-success mt-3' disabled={!stripe || !clientSecret}>
+                <button type="submit" className='btn btn-sm btn-success mt-3' disabled={!stripe || !clientSecret || success}>
                     Pay
                 </button>
 

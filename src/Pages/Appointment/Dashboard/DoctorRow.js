@@ -15,7 +15,6 @@ const DoctorRow = ({ doctor, refetch, setDeletingDoctor }) => {
             </div></td>
             <td>{name}</td>
             <td>{specialty}</td>
-
             <td>
                 <label onClick={() => setDeletingDoctor(doctor)} for="delete-modal" class="btn btn-xs btn-error">Delete</label>
 
